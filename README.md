@@ -147,7 +147,7 @@ public class ContactUsController : Controller
         }
     }
 ```
-## The View Page
+#### The View Page
 ```
 @{
     ViewBag.Title = "Success";
@@ -207,4 +207,236 @@ public class ProfileController : Controller
             return View(PersonalProfiles);
         }
     }
+```
+## **Project SideNav Bar**
+On a mobile view, or when the screen shrinks below 990 px, it collapses the navbar. I created a 3-bars Humburger menu which became visible on the left top corner of the page. The nav-content will be displayed on click to the 3-bars Humburgen menu with a 100% width. 
+#### Javascript to render the effects of the CSS into HTML
+```Javascript
+$("#toggle").click(function () {
+    $(this).toggleClass("open");
+    $("#menu").toggleClass("opened");
+});
+```
+#### Code for when the screen shrinks: non-mobile
+```
+/*styles for max width 990px. No nav bar was rendering between 772px to 990px. The adustments allowed a functional nav bar to display in all px*/
+@media screen and (max-width: 990px) {
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#toggle {
+    position: fixed;
+    z-index: 3;
+    width: 3em;
+    height: 3em;
+    top: 0;
+    left: 0;
+    margin: 15px 0 0 15px;
+}
+#toggle span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 0.2em;
+    margin: 1.25em 0 0 0;
+    background: var(--dark-blue);
+    -webkit-transition: 350ms ease all;
+    -moz-transition: 350ms ease all;
+    transition: 350ms ease all;
+}
+#toggle span:before, #toggle span:after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 0.2em;
+    background: var(--dark-blue);
+    -webkit-transition: 350ms ease all;
+    -moz-transition: 350ms ease all;
+    transition: 350ms ease all;
+}
+#toggle span:before {
+    margin: -1em auto;
+}
+#toggle span:after {
+    margin: 1em auto;
+}
+#toggle.open span:before, #toggle.open span:after {
+    margin: 0;
+    left: 3.2em;
+    top: -1em;
+    background: var(--dark-blue);
+}
+#toggle.open span:before {                     /*toggle effects when clicked*/
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+#toggle.open span:after {
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+#menu {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    z-index: 50;
+    text-align: center;
+    background: var(--dark-blue);
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transition: 350ms ease all;
+    -moz-transition: 350ms ease all;
+    transition: 350ms ease all;
+}
+#menu.opened {                /*How the menu views when opened*/
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 350ms ease all;
+    -moz-transition: 350ms ease all;
+    transition: 350ms ease all;
+}
+#menu ul li a i {
+    position: center;           /*aligned menu to align without overlap*/
+    padding: 0 1.25em 0 0;
+    font-size: 2em;
+}
+
+} /*end styles for max-width 990*/
+```
+#### Code display: Mobile
+```
+
+/***** Navbar Styling *****/
+
+#toggle {
+    position: fixed;
+    z-index: 50;
+    width: 2.8571428571em;
+    height: 2.8571428571em;
+    top: auto;
+    left: 0px;
+    margin: 15px 0 0 15px;
+    cursor: pointer;
+}
+#toggle span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 0.2em;
+    margin: 1.25em 0 0 0;
+    background: var(--dark-blue);
+    -webkit-transition: 350ms ease all;
+    -moz-transition: 350ms ease all;
+    transition: 350ms ease all;
+}
+#toggle span:before, #toggle span:after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 0.2em;
+    background: var(--dark-blue);
+    -webkit-transition: 350ms ease all;
+    -moz-transition: 350ms ease all;
+    transition: 350ms ease all;
+}
+#toggle span:before {
+    margin: -1em 0 0 0;
+}
+#toggle span:after {
+    margin: 1em 0 0 0;
+}
+#toggle.open span {
+    background-color: transparent;
+}
+#toggle.open span:before, #toggle.open span:after {
+    margin: 0;
+    background: #286efa;
+}
+#toggle.open span:before {
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+#toggle.open span:after {
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+/************BEGIN LEFT SIDE NAVBAR STYLING**********/
+
+#menu {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    font-size: 1.25em;
+    background-color: white;
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transition: 350ms ease all;
+    -moz-transition: 350ms ease all;
+    transition: 350ms ease all;
+}
+#menu.opened {
+    visibility: visible;
+    position:fixed;
+    z-index:9;
+    width:100%;              /*Adjusted to allow menus/sub menus to fit entirly in nav bar*/
+    top: -50px;
+    height:auto;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 350ms ease all;
+    -moz-transition: 350ms ease all;
+    transition: 350ms ease all;
+}
+.dropdownx {                   /*Used dropdowns to implement the sub menus*/
+    position: relative;
+    display: block;
+}
+.dropdownx-content {
+    display: none;
+    position: center;
+    background-color: var(--blue-gray);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 5;
+}
+.dropdownx:hover .dropdownx-content {
+    display: block;
+}
+#menu ul li a {     
+    position:relative;
+    color: white;
+    z-index: 4;
+    display: block;
+    width: 90%;
+    height: 65px;
+    margin: 1em auto 0.5em auto;
+}
+#menu ul li a i {
+    position: center;
+    padding: 0 1.25em 0 0;
+    font-size: 2em;
+}
+/*************END LEFT NAVBAR STYLING*****************/
 ```
