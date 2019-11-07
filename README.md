@@ -16,7 +16,7 @@ Below are descriptions of some of the stories I worked on, along with code snipp
     * [Non-Mobile View](https://github.com/therubini/Live-Project/blob/master/README.md#code-for-when-the-screen-shrinks-non-mobile)
     * [Mobile View](https://github.com/therubini/Live-Project/blob/master/README.md#code-display-mobile)
 * [Project Product Details Styling](https://github.com/therubini/Live-Project/blob/master/README.md#project-product-details-styling)
-## **Other Skills Learned**
+## **Other Skills**
 * [Developer Skills](https://github.com/therubini/Live-Project/blob/master/README.md#other-skills-learned)
 ## **Project Anchor Overload**
 
