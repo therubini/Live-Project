@@ -71,8 +71,8 @@ I needed to add an overload method to the Anchor Button that takes a Controller 
 ```
 #### *Jump to: [Introduction](https://github.com/therubini/Live-Project/blob/master/README.md#introduction), [Back End Stories](https://github.com/therubini/Live-Project/blob/master/README.md#back-end-stories), [Front End Stores](https://github.com/therubini/Live-Project/blob/master/README.md#front-end-stories)*
 ## **Project Contact Successful**
-I was tasked with creating a view page, once a submission form was validated. I also tested email errors in order to render proper messages. When a user successfully submits a contact form, the success flash message they receive is the Empty contact form itself. 
-We want to upgrade this success message to improve our user experience.We would like to see a separate view page.
+I was tasked with creating a view page, once a submission form was validated. I also tested email errors in order to render proper messages. When a user successfully submits a contact form, the success message they receive is an empty contact form itself. 
+I wanted to upgrade this success message to improve our user experience. I created a separate view page.
 ```C#
 
 public class ContactUsController : Controller
