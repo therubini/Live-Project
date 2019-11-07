@@ -220,7 +220,7 @@ public class ProfileController : Controller
 ```
 #### *Jump to: [Introduction](https://github.com/therubini/Live-Project/blob/master/README.md#introduction), [Back End Stories](https://github.com/therubini/Live-Project/blob/master/README.md#back-end-stories), [Front End Stores](https://github.com/therubini/Live-Project/blob/master/README.md#front-end-stories)*
 ## **Project SideNav Bar**
-On a mobile view, or when the screen shrinks below 990 px, it collapses the navbar. I created a 3-bars Humburger menu which became visible on the left top corner of the page. The nav-content will be displayed on click to the 3-bars Humburgen menu with a 100% width. 
+On a mobile view, or when the screen shrinks below 990 px, it collapses the navbar. I created a 3-bars Humburger menu which became visible on the left top corner of the page. I created the Mobile nav-content to display on click to the 3-bars Humburger menu with a 100% width. I also fixed the bug that did not display any menu to display on screens less than 990 px. 
 #### Javascript to render the effects of the CSS into HTML
 ```Javascript
 $("#toggle").click(function () {
