@@ -440,3 +440,53 @@ $("#toggle").click(function () {
 }
 /*************END LEFT NAVBAR STYLING*****************/
 ```
+## **Project Product Details Styling**
+I was tasked to style the Product/details to view like all other details view pages in the site. I was to implement button partials which paths led to the save and back to list. I was also tasked to create an Add to Cart button that only displayed an icon which styled similar to the partial buttons.
+```C#
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Product Details</h2>               <!--Title updated-->
+
+<div class="container rounded w-50">
+    <!--Container created with width of 50% dimension -->
+    <div class="card" style="opacity: .8; border-radius: 20px; padding: 50px">
+        <div class="text-center">
+            <dl class="dl-horizontal">
+                <dd>
+                    <img src="~/Content/images/Product/@(Model.ImagePath)" class="card-img-top mx-auto center" alt="Image"                                      style="width:210px;height:200px;" />
+                </dd>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProductName)
+                </dd>
+
+                <dt>
+                    Description
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProductDescription)
+                </dd>
+
+                <dt>
+                    Price
+                </dt>
+
+                <dd>
+                    $@Html.DisplayFor(model => model.UnitPrice)
+                </dd>
+            </dl>
+        </div>
+        <p class="text-center">
+            @Html.AnchorButton(AnchorType.BackToList, Url.Action("Index"))   
+
+            <a href="@Url.Action("AddToCart", "CartItem", new { id = Model.ProductId }, null)"title="Add to Cart"><i class="btn btn-sm                  btn-primary fa fa-shopping-cart" style="height:30px"></i></a>
+            <!--Shopping Cart icon used for the "Add to Cart" button styled to match the anchorbutton-->
+        
+        </p>
+    </div>
+</div>
+```
