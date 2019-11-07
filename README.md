@@ -10,13 +10,13 @@ Below are descriptions of some of the stories I worked on, along with code snipp
 ## **Back End Stories**
 <br />
 
-##  **Anchor Overload**
+##  **Project Anchor Overload**
 
 I needed to add an overload method to the Anchor Button that takes a Controller name (ie Jobs, JobActions, Schedules, etc) and renders buttons for that specific set of pages. The project did not want to have to rewrite the code for existing buttons, they just wanted flexibility in creating new button
 <br />
 ``` 
 
-     public static MvcHtmlString AnchorButton(this HtmlHelper helper, AnchorType Type, string Url, string controller) 
+    public static MvcHtmlString AnchorButton(this HtmlHelper helper, AnchorType Type, string Url, string controller) 
      //Overload added to render a custom AnchorButton to a path outside of class
     {
         switch (Type)
@@ -60,4 +60,151 @@ I needed to add an overload method to the Anchor Button that takes a Controller 
         return anchor.ToString(TagRenderMode.Normal);
     }
 }
+```
+## **Project Contact Successful**
+I was tasked with creating a view page, once a submission form was validated. I also tested email errors in order to render proper messages. When a user successfully submits a contact form, the success flash message they receive is the Empty contact form itself. 
+We want to upgrade this success message to improve our user experience.We would like to see a separate view page.
+```
+
+public class ContactUsController : Controller
+    {
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Index(ContactUs userInput)
+        {
+            if (ModelState.IsValid)
+            {
+                var toAddress = "liveprojectdummyacct@gmail.com";
+                var fromAddress = userInput.Email.ToString();
+                var subject = userInput.Subject;
+                var message = "<b>Name: </b>" + userInput.Name + "<br>" + "<b>Email: </b>" + userInput.Email + "<br>" + "<b>Telephone: </b>" + userInput.Phone + "<br><br>" + "<b>Message: </b>" + userInput.Message;
+
+                SendEmail(toAddress, fromAddress, subject, message);
+                return View("Success");
+            }
+            return View();
+        }
+
+        public void SendEmail(string toAddress, string fromAddress, string subject, string message)
+        {
+            using (MailMessage newMessage = new MailMessage())
+            {
+                newMessage.From = new MailAddress(fromAddress);
+                newMessage.To.Add(new MailAddress(toAddress));
+                newMessage.Subject = subject;
+                newMessage.Body = message.ToString();
+                newMessage.IsBodyHtml = true;
+                try
+                {
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.Port = 587;
+                    smtp.Credentials = new NetworkCredential
+                    ("liveprojectdummyacct@gmail.com", "ASDqwe123!");
+                    smtp.EnableSsl = true;
+                    smtp.Send(newMessage);
+                    ModelState.Clear();
+                    ViewBag.Message = "Thank you for contacting us! Someone will get back to you shortly. ";
+                }
+                catch (SmtpFailedRecipientsException ex)
+                {
+                    foreach (SmtpFailedRecipientException t in ex.InnerExceptions)
+                    {
+                        var status = t.StatusCode;
+                        if (status == SmtpStatusCode.MailboxBusy ||
+                            status == SmtpStatusCode.MailboxUnavailable)
+                        {
+                            Response.Write("Delivery failed - retrying in 5 seconds.");
+                            Thread.Sleep(5000);
+                            //resend
+                            SmtpClient smtp = new SmtpClient();
+                            smtp.Host = "smtp.gmail.com";
+                            smtp.Port = 587;
+                            smtp.Credentials = new NetworkCredential
+                            ("liveprojectdummyacct@gmail.com", "ASDqwe123!");
+                            smtp.EnableSsl = true;
+                            smtp.Send(newMessage);
+                        }
+                        else
+                        {
+                            ViewBag.Message = $"Failed to deliver message to " + t.FailedRecipient;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = $"A secure connection or the client was not authenticated.";
+                }
+                finally
+                {
+                    newMessage.Dispose();
+                }
+            }
+        }
+    }
+```
+## The View Page
+```
+@{
+    ViewBag.Title = "Success";
+}
+
+<br />
+<br />
+<br />
+<div class="jumbotron form-horizontal formContainer" style="opacity: .8; border-radius: 20px; padding: 50px">
+    <svg viewBox="0 10 250 20"><text x="0" y="25">Boom. Your form was submitted.</text></svg>
+    <br />
+    <br />
+    <p class="lead font-weight-bold">@Html.Raw(ViewBag.Message)</p>
+    <br />
+    <p class="text-center">
+        @Html.AnchorButton(AnchorType.Home, Url.Action("Index", "Home")) @*User friendly anchor button to redirect them to home*@
+    </p>
+
+</div>
+```
+## **Project Debug the Create profile**
+There was a class for a Personal Profile that has been buggy since implementation. The application would crash when an existing user tried to create a new personal profile from the Manage Profile secion. My task was to track down this error and fix whatever is causing it.
+```
+
+
+public class ProfileController : Controller
+    {
+        // GET: PersonalProfiles/Create
+        public ActionResult Create()      //Deleted parameter of "String Id" 
+        {
+            ViewBag.ProfileID = User.Identity.GetUserId();
+            return View();
+        }
+
+        // POST: PersonalProfiles/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "ProfileId,AboutMe,TagLine")] PersonalProfile PersonalProfiles)
+        { //Added a try/catch to prevent application from crashing when user tries to create another profile on top of existing profile
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Profile.Find(PersonalProfiles.ProfileID);
+                    db.Profile.Add(PersonalProfiles);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "User profile already exists. Make any changes to the EDIT button. Thanks!");
+            }
+            ViewBag.ProfileID = new SelectList(db.Users, "Id", "DisplayName", PersonalProfiles.ProfileID);
+            return View(PersonalProfiles);
+        }
+    }
 ```
