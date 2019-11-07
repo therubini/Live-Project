@@ -13,4 +13,49 @@ Below are descriptions of some of the stories I worked on, along with code snipp
 ##  **Anchor Overload**
 <br /> 
 I needed to add an overload method to the Anchor Button that takes a Controller name (ie Jobs, JobActions, Schedules, etc) and renders buttons for that specific set of pages. The project did not want to have to rewrite the code for existing buttons, they just wanted flexibility in creating new button
-https://github.com/therubini/C-sharp-and-.NET-projects/blob/eb1165ba5c3979c74fdf4fe502332b396bda23cb/ProjectSnippets/Controllers/AnchorController.cs#L40-L99
+<br />
+
+public static MvcHtmlString AnchorButton(this HtmlHelper helper, AnchorType Type, string Url, string controller) 
+//Overload added to render a custom AnchorButton to a path outside of class
+        {
+            switch (Type)
+            {
+                case AnchorType.BackToList:
+                    return new MvcHtmlString(ButtonString(Url, controller, "fa-arrow-left"));
+                case AnchorType.Create:
+                    return new MvcHtmlString(ButtonString(Url, controller, "fa-plus-square"));
+                case AnchorType.Delete:
+                    return new MvcHtmlString(ButtonString(Url, controller, "fa-trash"));
+                case AnchorType.Details:
+                    return new MvcHtmlString(ButtonString(Url, controller, "fa-info-circle"));
+                case AnchorType.Edit:
+                    return new MvcHtmlString(ButtonString(Url, controller, "fa-pencil"));
+                // new save button
+                case AnchorType.Save:
+                    return new MvcHtmlString(ButtonString(Url, controller, "fa-floppy-o"));                    
+                // new home/Menu button
+                case AnchorType.Home:
+                    return new MvcHtmlString(ButtonString(Url, controller, "fa-arrow-left"));
+                default:
+                    return new MvcHtmlString(ButtonString(Url, controller));
+            }
+        }
+        private static string ButtonString(string url, string text, string icon = "")
+        {
+            var anchor = new TagBuilder("a");
+            anchor.MergeAttribute("type", "button");
+            anchor.AddCssClass("btn btn-sm btn-primary");
+            anchor.MergeAttribute("href", url);
+            var span = new TagBuilder("span");
+            if (icon != "")
+            {
+                var i = new TagBuilder("i");
+                i.AddCssClass($"fa {icon}");
+                span.InnerHtml = $"{i.ToString(TagRenderMode.Normal)}";
+            }
+            span.InnerHtml += $" {text}";
+            anchor.InnerHtml = $"{span.ToString(TagRenderMode.Normal)}";
+            return anchor.ToString(TagRenderMode.Normal);
+        }
+    }
+}
