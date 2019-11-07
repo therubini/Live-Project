@@ -490,3 +490,10 @@ I was tasked to style the Product/details to view like all other details view pa
     </div>
 </div>
 ```
+## **Other Skills Learned**
+* Working with a group of developers to identify front and back end bugs to the improve usability of an application
+* Improving project flow by communicating about who needs to check out which files for their current story
+* Learning new efficiencies from other developers by observing their workflow and asking questions
+    * I implemented new properties to Models to render new partial buttons to Controllers in order to create efficient solutions for the        team
+* Practice with team programming/pair programming when one developer runs into a bug they cannot solve 
+    * One of the developers on the team was having trouble with the back end ActionButton partials to render a path and display as      needed by the project manager. I was able to help them identify the issue with the logic in order to produce the wanted results. I completed the project, and I showed them how. 
