@@ -9,6 +9,6 @@ Below are descriptions of some of the stories I worked on, along with code snipp
 
 ## **Back End Stories**
 <br />
-## Anchor Overload
+## **Anchor Overload**
 <br /> 
 I needed to add an overload method to the Anchor Button that takes a Controller name (ie Jobs, JobActions, Schedules, etc) and renders buttons for that specific set of pages. The project did not want to have to rewrite the code for existing buttons, they just want flexibility in creating new button
