@@ -14,7 +14,7 @@ Below are descriptions of some of the stories I worked on, along with code snipp
 
 I needed to add an overload method to the Anchor Button that takes a Controller name (ie Jobs, JobActions, Schedules, etc) and renders buttons for that specific set of pages. The project did not want to have to rewrite the code for existing buttons, they just wanted flexibility in creating new button
 <br />
-``` 
+```C# 
 
     public static MvcHtmlString AnchorButton(this HtmlHelper helper, AnchorType Type, string Url, string controller) 
      //Overload added to render a custom AnchorButton to a path outside of class
@@ -64,7 +64,7 @@ I needed to add an overload method to the Anchor Button that takes a Controller 
 ## **Project Contact Successful**
 I was tasked with creating a view page, once a submission form was validated. I also tested email errors in order to render proper messages. When a user successfully submits a contact form, the success flash message they receive is the Empty contact form itself. 
 We want to upgrade this success message to improve our user experience.We would like to see a separate view page.
-```
+```C#
 
 public class ContactUsController : Controller
     {
@@ -148,7 +148,7 @@ public class ContactUsController : Controller
     }
 ```
 #### The View Page
-```
+```C#
 @{
     ViewBag.Title = "Success";
 }
@@ -170,7 +170,7 @@ public class ContactUsController : Controller
 ```
 ## **Project Debug the Create profile**
 There was a class for a Personal Profile that has been buggy since implementation. The application would crash when an existing user tried to create a new personal profile from the Manage Profile secion. My task was to track down this error and fix whatever is causing it.
-```
+```C#
 
 
 public class ProfileController : Controller
@@ -218,7 +218,7 @@ $("#toggle").click(function () {
 });
 ```
 #### Code for when the screen shrinks: non-mobile
-```
+```CSS
 /*styles for max width 990px. No nav bar was rendering between 772px to 990px. The adustments allowed a functional nav bar to display in all px*/
 @media screen and (max-width: 990px) {
 
@@ -314,7 +314,7 @@ $("#toggle").click(function () {
 } /*end styles for max-width 990*/
 ```
 #### Code display: Mobile
-```
+```CSS
 
 /***** Navbar Styling *****/
 
