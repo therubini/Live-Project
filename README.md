@@ -11,9 +11,13 @@ Below are descriptions of some of the stories I worked on, along with code snipp
 * [Project Anchor Overload](https://github.com/therubini/Live-Project/blob/master/README.md#project-anchor-overload)
 * [Project Contact Successful](https://github.com/therubini/Live-Project/blob/master/README.md#project-contact-successful)
 * [Project Debut the Create Profile](https://github.com/therubini/Live-Project/blob/master/README.md#project-debug-the-create-profile)
-<br />
+## **Front End Stories**
+* [Project Side Navigation Bar](https://github.com/therubini/Live-Project/blob/master/README.md#project-sidenav-bar)
+    * [Non-Mobile View](https://github.com/therubini/Live-Project/blob/master/README.md#code-for-when-the-screen-shrinks-non-mobile)
+    * [Mobile View](https://github.com/therubini/Live-Project/blob/master/README.md#code-display-mobile)
+* [Project Product Details Styling](https://github.com/therubini/Live-Project/blob/master/README.md#project-product-details-styling)
 
-##  **Project Anchor Overload**
+## **Project Anchor Overload**
 
 I needed to add an overload method to the Anchor Button that takes a Controller name (ie Jobs, JobActions, Schedules, etc) and renders buttons for that specific set of pages. The project did not want to have to rewrite the code for existing buttons, they just wanted flexibility in creating new button
 <br />
