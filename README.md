@@ -16,7 +16,8 @@ Below are descriptions of some of the stories I worked on, along with code snipp
     * [Non-Mobile View](https://github.com/therubini/Live-Project/blob/master/README.md#code-for-when-the-screen-shrinks-non-mobile)
     * [Mobile View](https://github.com/therubini/Live-Project/blob/master/README.md#code-display-mobile)
 * [Project Product Details Styling](https://github.com/therubini/Live-Project/blob/master/README.md#project-product-details-styling)
-
+## **Other Skills Learned**
+* [Developer Skills](https://github.com/therubini/Live-Project/blob/master/README.md#other-skills-learned)
 ## **Project Anchor Overload**
 
 I needed to add an overload method to the Anchor Button that takes a Controller name (ie Jobs, JobActions, Schedules, etc) and renders buttons for that specific set of pages. The project did not want to have to rewrite the code for existing buttons, they just wanted flexibility in creating new button
