@@ -72,7 +72,7 @@ I needed to add an overload method to the Anchor Button that takes a Controller 
 #### *Jump to: [Introduction](https://github.com/therubini/Live-Project/blob/master/README.md#introduction), [Back End Stories](https://github.com/therubini/Live-Project/blob/master/README.md#back-end-stories), [Front End Stores](https://github.com/therubini/Live-Project/blob/master/README.md#front-end-stories)*
 ## **Project Contact Successful**
 I was tasked with creating a view page, once a submission form was validated. I also tested email errors in order to render proper messages. When a user successfully submits a contact form, the success message they receive is an empty contact form itself. 
-I wanted to upgrade this success message to improve our user experience. I created a separate view page.
+I wanted to upgrade this success message to improve our user experience. I created a separate view page along with creating a new anchor button that directed the user back to the home page after submission.
 ```C#
 
 public class ContactUsController : Controller
@@ -453,7 +453,7 @@ $("#toggle").click(function () {
 ```
 #### *Jump to: [Introduction](https://github.com/therubini/Live-Project/blob/master/README.md#introduction), [Back End Stories](https://github.com/therubini/Live-Project/blob/master/README.md#back-end-stories), [Front End Stores](https://github.com/therubini/Live-Project/blob/master/README.md#front-end-stories)*
 ## **Project Product Details Styling**
-I was tasked to style the Product/details to view like all other details view pages in the site. I was to implement button partials which paths led to the save and back to list. I was also tasked to create an Add to Cart button that only displayed an icon which styled similar to the partial buttons.
+I was tasked to style the Product/details to view like all other details view pages in the site. I was able to implement button partials which paths led to the 'save' and 'back to list'. I was also tasked to create an Add to Cart button that only displayed an icon which styled similar to the partial buttons.
 ```C#
 
 @{
