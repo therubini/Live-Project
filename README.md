@@ -12,4 +12,5 @@ Below are descriptions of some of the stories I worked on, along with code snipp
 
 ##  **Anchor Overload**
 <br /> 
-I needed to add an overload method to the Anchor Button that takes a Controller name (ie Jobs, JobActions, Schedules, etc) and renders buttons for that specific set of pages. The project did not want to have to rewrite the code for existing buttons, they just want flexibility in creating new button
+I needed to add an overload method to the Anchor Button that takes a Controller name (ie Jobs, JobActions, Schedules, etc) and renders buttons for that specific set of pages. The project did not want to have to rewrite the code for existing buttons, they just wanted flexibility in creating new button
+https://github.com/therubini/C-sharp-and-.NET-projects/blob/eb1165ba5c3979c74fdf4fe502332b396bda23cb/ProjectSnippets/Controllers/AnchorController.cs#L40-L99
