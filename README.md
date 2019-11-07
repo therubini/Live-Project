@@ -4,7 +4,7 @@
 
 For the last two weeks of my time at the tech academy, I worked with my peers in a team developing a full scale MVC/Entity Framework Code First in C#. Working with the .NET Framework was a great learning oppertunity for fixing bugs, cleaning up code, and adding requested features. There were some big changes that could have been a large time sink, but working in a scrum envirnoment with Azure DevOps Server, we used what we had to deliver what was needed on time. I saw how a good developer works with what they have to make a quality product. I worked on several back end stories. Because much of the site had already been built, there were also a good deal of front end stories and UX improvements that needed to be completed, all of varying degrees of difficulty. Everyone on the team had a chance to work on front end and back end stories. Over the two week sprint I also had the opportunity to work on some other project management and team programming skills that I'm confident I will use again and again on future projects.
 <br />
-Below are descriptions of some of the stories I worked on, along with code snippets and navigation links. I also have some full code files in this repo for the larger functionalities I implemented.
+Below are descriptions of some of the stories I worked on, along with code snippets and navigation links. 
 <br />
 
 ## **Back End Stories**
@@ -69,6 +69,7 @@ I needed to add an overload method to the Anchor Button that takes a Controller 
     }
 }
 ```
+#### *Jump to: [Introduction](https://github.com/therubini/Live-Project/blob/master/README.md#introduction), [Back End Stories](https://github.com/therubini/Live-Project/blob/master/README.md#back-end-stories), [Front End Stores](https://github.com/therubini/Live-Project/blob/master/README.md#front-end-stories)*
 ## **Project Contact Successful**
 I was tasked with creating a view page, once a submission form was validated. I also tested email errors in order to render proper messages. When a user successfully submits a contact form, the success flash message they receive is the Empty contact form itself. 
 We want to upgrade this success message to improve our user experience.We would like to see a separate view page.
@@ -176,6 +177,7 @@ public class ContactUsController : Controller
 
 </div>
 ```
+#### *Jump to: [Introduction](https://github.com/therubini/Live-Project/blob/master/README.md#introduction), [Back End Stories](https://github.com/therubini/Live-Project/blob/master/README.md#back-end-stories), [Front End Stores](https://github.com/therubini/Live-Project/blob/master/README.md#front-end-stories)*
 ## **Project Debug the Create profile**
 There was a class for a Personal Profile that has been buggy since implementation. The application would crash when an existing user tried to create a new personal profile from the Manage Profile secion. My task was to track down this error and fix whatever is causing it.
 ```C#
@@ -216,6 +218,7 @@ public class ProfileController : Controller
         }
     }
 ```
+#### *Jump to: [Introduction](https://github.com/therubini/Live-Project/blob/master/README.md#introduction), [Back End Stories](https://github.com/therubini/Live-Project/blob/master/README.md#back-end-stories), [Front End Stores](https://github.com/therubini/Live-Project/blob/master/README.md#front-end-stories)*
 ## **Project SideNav Bar**
 On a mobile view, or when the screen shrinks below 990 px, it collapses the navbar. I created a 3-bars Humburger menu which became visible on the left top corner of the page. The nav-content will be displayed on click to the 3-bars Humburgen menu with a 100% width. 
 #### Javascript to render the effects of the CSS into HTML
@@ -448,6 +451,7 @@ $("#toggle").click(function () {
 }
 /*************END LEFT NAVBAR STYLING*****************/
 ```
+#### *Jump to: [Introduction](https://github.com/therubini/Live-Project/blob/master/README.md#introduction), [Back End Stories](https://github.com/therubini/Live-Project/blob/master/README.md#back-end-stories), [Front End Stores](https://github.com/therubini/Live-Project/blob/master/README.md#front-end-stories)*
 ## **Project Product Details Styling**
 I was tasked to style the Product/details to view like all other details view pages in the site. I was to implement button partials which paths led to the save and back to list. I was also tasked to create an Add to Cart button that only displayed an icon which styled similar to the partial buttons.
 ```C#
@@ -498,6 +502,7 @@ I was tasked to style the Product/details to view like all other details view pa
     </div>
 </div>
 ```
+#### *Jump to: [Introduction](https://github.com/therubini/Live-Project/blob/master/README.md#introduction), [Back End Stories](https://github.com/therubini/Live-Project/blob/master/README.md#back-end-stories), [Front End Stores](https://github.com/therubini/Live-Project/blob/master/README.md#front-end-stories)*
 ## **Other Skills Learned**
 * Working with a group of developers to identify front and back end bugs to the improve usability of an application
 * Improving project flow by communicating about who needs to check out which files for their current story
