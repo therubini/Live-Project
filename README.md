@@ -10,7 +10,7 @@ Below are descriptions of some of the stories I worked on, along with code snipp
 ## **Back End Stories**
 * [Project Anchor Overload](https://github.com/therubini/Live-Project/blob/master/README.md#project-anchor-overload)
 * [Project Contact Successful](https://github.com/therubini/Live-Project/blob/master/README.md#project-contact-successful)
-* [Project Debut the Create Profile](https://github.com/therubini/Live-Project/blob/master/README.md#project-debug-the-create-profile)
+* [Project Debug the Create Profile](https://github.com/therubini/Live-Project/blob/master/README.md#project-debug-the-create-profile)
 ## **Front End Stories**
 * [Project Side Navigation Bar](https://github.com/therubini/Live-Project/blob/master/README.md#project-sidenav-bar)
     * [Non-Mobile View](https://github.com/therubini/Live-Project/blob/master/README.md#code-for-when-the-screen-shrinks-non-mobile)
