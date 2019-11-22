@@ -179,7 +179,7 @@ public class ContactUsController : Controller
 ```
 #### *Jump to: [Introduction](https://github.com/therubini/Live-Project/blob/master/README.md#introduction), [Back End Stories](https://github.com/therubini/Live-Project/blob/master/README.md#back-end-stories), [Front End Stores](https://github.com/therubini/Live-Project/blob/master/README.md#front-end-stories)*
 ## **Project Debug the Create profile**
-There was a class for a Personal Profile that has been buggy since implementation. The application would crash when an existing user tried to create a new personal profile from the Manage Profile secion. My task was to track down this error and fix whatever is causing it.
+There was a class for a Personal Profile that has been buggy since implementation. The application would crash when an existing user tried to create a new personal profile from the Manage Profile section. My task was to track down this error and fix whatever is causing it.
 ```C#
 
 
